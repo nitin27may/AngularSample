@@ -1,0 +1,16 @@
+<h1 id="tableLabel">Weather forecast</h1>
+
+<p>This component demonstrates fetching data from the server.</p>
+
+<p *ngIf="!forecasts"><em>Loading...</em></p>
+<div *ngIf="!forecasts">{{ forecasts | json }}</div>
+<ngx-datatable
+  class="material fullscreen"
+  [columnMode]="ColumnMode.force"
+  [headerHeight]="50"
+  [footerHeight]="0"
+  [rowHeight]="50"
+  [rows]="forecasts"
+  [columns]="columns"
+>
+</ngx-datatable>

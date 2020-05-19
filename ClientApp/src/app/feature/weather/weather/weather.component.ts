@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { WeatherService } from "./weather.service";
 import { ColumnMode } from "@swimlane/ngx-datatable";
+import { TranslateService } from "@ngx-translate/core";
 @Component({
   selector: "app-weather",
   templateUrl: "./weather.component.html",
@@ -8,6 +9,8 @@ import { ColumnMode } from "@swimlane/ngx-datatable";
 })
 export class WeatherComponent implements OnInit {
   public forecasts: any;
+
+  public users: any;
   ColumnMode = ColumnMode;
   columns = [
     { prop: "date", name: "Date", pipe: { transform: this.datePipe } },
@@ -15,17 +18,38 @@ export class WeatherComponent implements OnInit {
     { prop: "temperatureF", name: "Temperature (F)" },
     { prop: "summary", name: "Summary" },
   ];
+
+  userColumns = [
+    { prop: "name", name: "Name" },
+    { prop: "username", name: "User Name" },
+    { prop: "email", name: "Email" },
+    { prop: "website", name: "Website" },
+  ];
   name: string;
-  constructor(private weatherService: WeatherService) {}
+  constructor(
+    private weatherService: WeatherService,
+    private translate: TranslateService
+  ) {}
 
   ngOnInit(): void {
     this.getWeatherInfo();
+    this.getUser();
+    this.translate.use("fr");
   }
 
   private getWeatherInfo() {
     this.weatherService.GetWeathers().subscribe(
       (result: WeatherForecast[]) => {
         this.forecasts = result;
+      },
+      (error) => console.error(error)
+    );
+  }
+
+  private getUser() {
+    this.weatherService.GetUsers().subscribe(
+      (result: WeatherForecast[]) => {
+        this.users = result;
       },
       (error) => console.error(error)
     );

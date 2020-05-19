@@ -14,6 +14,10 @@ export class WeatherService {
       environment.apiEndpoint + "weatherforecast"
     );
   }
+
+  GetUsers() {
+    return this.http.get("https://jsonplaceholder.typicode.com/users");
+  }
 }
 
 interface WeatherForecast {

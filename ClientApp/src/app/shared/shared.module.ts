@@ -1,9 +1,13 @@
 import { CommonModule } from "@angular/common";
 import { HttpClientModule } from "@angular/common/http";
 import { ModuleWithProviders, NgModule } from "@angular/core";
+
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
 import { BootstrapModule } from "./bootstrap.module";
+import { TranslateModule } from "@ngx-translate/core";
+
+import { TableModule } from "primeng/table";
 
 @NgModule({
   declarations: [],
@@ -14,6 +18,8 @@ import { BootstrapModule } from "./bootstrap.module";
     HttpClientModule,
     RouterModule,
     BootstrapModule,
+    TranslateModule,
+    TableModule,
   ],
   exports: [
     CommonModule,
@@ -22,6 +28,8 @@ import { BootstrapModule } from "./bootstrap.module";
     HttpClientModule,
     RouterModule,
     BootstrapModule,
+    TranslateModule,
+    TableModule,
   ],
 })
 export class SharedModule {

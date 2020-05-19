@@ -1,0 +1,11 @@
+{
+  "HOME": {
+    "SELECT": "Change language",
+    "HI": "Hi",
+    "FRENCH": "French",
+    "ENGLISH": "English",
+    "NAME": "Name",
+    "USERNAME": "Username",
+    "EMAIL": "Email"
+  }
+}

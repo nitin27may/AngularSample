@@ -1,16 +1,23 @@
 <h1 id="tableLabel">Weather forecast</h1>
 
 <p>This component demonstrates fetching data from the server.</p>
+<div>
+  {{ "HOME.ENGLISH" | translate }}
 
-<p *ngIf="!forecasts"><em>Loading...</em></p>
-<div *ngIf="!forecasts">{{ forecasts | json }}</div>
-<ngx-datatable
-  class="material fullscreen"
-  [columnMode]="ColumnMode.force"
-  [headerHeight]="50"
-  [footerHeight]="0"
-  [rowHeight]="50"
-  [rows]="forecasts"
-  [columns]="columns"
->
-</ngx-datatable>
+  <p-table class="table" [value]="users">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>{{ "HOME.NAME" | translate }}</th>
+        <th>{{ "HOME.USERNAME" | translate }}</th>
+        <th>{{ "HOME.EMAIL" | translate }}</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-user>
+      <tr>
+        <td>{{ user.name }}</td>
+        <td>{{ user.username }}</td>
+        <td>{{ user.email }}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

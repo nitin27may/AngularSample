@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
+import { ConfirmationPopupComponent } from "@core/components";
 import { BsModalRef, BsModalService } from "ngx-bootstrap/modal";
-import { ConfirmationPopupComponent } from "./core/components/confirmation-popup/confirmation-popup.component";
+
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,7 @@ import { ConfirmationPopupComponent } from "./core/components/confirmation-popup
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'AngularSample';
+  title = 'Angular Sample';
   modalRef!: BsModalRef;
   constructor(private modalService: BsModalService){
 
